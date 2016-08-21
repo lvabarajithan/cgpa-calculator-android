@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/help_header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/help_bar"
+        layout="@layout/app_bar" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/feed_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:gravity="start"
+            android:hint="@string/feedback_text"
+            android:inputType="textMultiLine"
+            android:maxLines="7"
+            android:textColor="#212121" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/submit_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="16dp"
+        android:text="Submit"
+        android:textColor="#212121" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/feed_desc_msg"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#212121" />
+
+    <ImageView
+        android:id="@+id/chamber_of_secret"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:contentDescription="@string/app_desc"
+        android:src="@drawable/ic_cgpa_icon" />
+
+</LinearLayout>
