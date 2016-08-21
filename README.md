@@ -26,8 +26,8 @@ These are the missing features which are expected to be added.
 ### Resources
 
 1. Firebase - https://firebase.google.com/
-2. Material Design lite by Google - https://getmdl.io
-3. MaterializeCss - http://materializecss.com/
+2. Glide - https://github.com/bumptech/glide
+3. GSON - https://github.com/google/gson
 
 ### Get the application here:
 
