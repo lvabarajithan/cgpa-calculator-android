@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <style name="Theme.Navigation" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColorSecondary">@color/navigation_group_text</item>
+    </style>
+
+    <style name="Theme.Spinner" parent="@style/Theme.AppCompat.Light">
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:textColorPrimary">@color/primary_text_material_light</item>
+        <item name="android:textColorSecondary">@color/primary_text_material_light</item>
+    </style>
+
+
+    <style name="Theme.EditText" parent="@style/Theme.AppCompat.Light">
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:textColorPrimary">@color/material_black</item>
+        <item name="android:textColorSecondary">@color/primary</item>
+    </style>
+
+    <style name="Theme.EditText.Dark" parent="@style/Theme.AppCompat.Light">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/material_black</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">#000</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
+        <item name="android:textColorSecondaryInverse">#000</item>
+        <item name="android:textColorPrimaryInverse">#000</item>
+    </style>
+
+    <style name="FloatingActionButton">
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_home"
+            android:checked="true"
+            android:icon="@drawable/ic_action_home"
+            android:title="@string/home_txt" />
+        <item
+            android:id="@+id/action_details"
+            android:icon="@drawable/ic_action_details"
+            android:title="@string/details_text" />
+        <item
+            android:id="@+id/action_others"
+            android:icon="@drawable/ic_action_gpa"
+            android:title="@string/others_txt" />
+    </group>
+    <item android:title="@string/account_txt">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/action_profile"
+                    android:icon="@drawable/ic_action_profile"
+                    android:title="@string/nav_menu_profile_text" />
+                <item
+                    android:id="@+id/action_change_pass"
+                    android:icon="@drawable/ic_change_pass"
+                    android:title="@string/change_pass_txt" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="@string/more_txt">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/action_about"
+                    android:icon="@drawable/ic_action_about"
+                    android:title="@string/about_txt" />
+                <item
+                    android:id="@+id/action_help"
+                    android:icon="@drawable/ic_action_feedback"
+                    android:title="@string/help_txt" />
+            </group>
+        </menu>
+    </item>
+</menu>
