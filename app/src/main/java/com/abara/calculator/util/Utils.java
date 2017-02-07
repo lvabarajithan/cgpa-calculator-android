@@ -45,7 +45,7 @@ import java.util.Arrays;
 
 /**
  * Created by abara on 8/29/2015.
- *
+ * <p>
  * The Utility class
  */
 public class Utils {
@@ -212,7 +212,7 @@ public class Utils {
 
         if (!isOfflinePackageDownloaded) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Theme_Dialog);
             builder.setTitle("Offline package")
                     .setMessage("You can use the app even when you are offline.")
                     .setPositiveButton("Download", new DialogInterface.OnClickListener() {

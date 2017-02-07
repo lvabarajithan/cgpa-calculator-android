@@ -214,6 +214,7 @@ public class CalcActivity extends AppCompatActivity {
         //firebase = new Firebase("https://cgpa-calculator.firebaseio.com/database/Reg" + regulation + "/" + Utils.course[coursePos].toUpperCase());
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("database/Reg" + regulation + "/" + Utils.course[coursePos].toUpperCase());
+        reference.keepSynced(true);
 
         reference.child(selectedDept[deptPos].toUpperCase()).child("sem" + (semPos + 1)).addValueEventListener(new ValueEventListener() {
             @Override

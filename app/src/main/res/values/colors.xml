@@ -14,5 +14,5 @@
     <color name="primary_text_material_light">#000000</color>
     <color name="material_black">#2C2C2C</color>
     <color name="grey_text">#737373</color>
-
+    <color name="colorBlack">#212121</color>
 </resources>

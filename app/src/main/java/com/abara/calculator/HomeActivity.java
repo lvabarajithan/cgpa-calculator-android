@@ -196,7 +196,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         FirebaseAnalytics.getInstance(this).logEvent("choose_pic", bundle);
 
         View view = LayoutInflater.from(this).inflate(R.layout.dialog_choose_picture, null);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(view);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_Dialog).setView(view);
         final AlertDialog dialog = builder.create();
 
         RecyclerView avatarList = (RecyclerView) view.findViewById(R.id.avatars_list);
@@ -389,7 +389,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.action_logout:
                 //do logout
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_Dialog);
                 builder.setTitle("Logout");
                 builder.setMessage("Are you sure ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -398,10 +398,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         //ImageUtils.deleteImageFromLocal();
                         //ImageUtils.initMediaScanner(HomeActivity.this);
 
-                        Utils.setUserOnline(currUser.getUnivno(), false);
-                        prefs.edit().putString(PreferenceIds.USER_JSON_KEY, "{}").clear();
-                        prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").clear();
-                        prefs.edit().putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, false).commit();
+                        //Utils.setUserOnline(currUser.getUnivno(), false);
+                        prefs.edit().putString(PreferenceIds.USER_JSON_KEY, "{}").clear()
+                                .putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").clear()
+                                .putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, false).apply();
                         finish();
                         startActivity(new Intent(HomeActivity.this, SplashScreen.class));
 

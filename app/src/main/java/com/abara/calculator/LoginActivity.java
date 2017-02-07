@@ -319,6 +319,8 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                                                      Snackbar.make(container, "Detail(s) are missing for registration", Snackbar.LENGTH_SHORT).show();
                                                  } else if (!eid.contains("@") && !eid.contains(".")) {
                                                      Snackbar.make(container, "Invalid email address", Snackbar.LENGTH_SHORT).show();
+                                                 } else if (no.length() < 10) {
+                                                     Snackbar.make(container, "Invalid Registration Number, Please use your full number!", Snackbar.LENGTH_LONG).show();
                                                  } else {
 
                                                      showProgress("Just a sec...");
@@ -480,31 +482,41 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
 
                                                        showProgress("Logging in...");
 
-                                                       reference.orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
+                                                       reference.child(univno).orderByValue().addListenerForSingleValueEvent(new ValueEventListener() {
                                                            @Override
                                                            public void onDataChange(DataSnapshot dataSnapshot) {
 
+                                                               //Log.d(Utils.TAG, dataSnapshot.toString());
 
-                                                               Log.d(Utils.TAG, dataSnapshot.toString());
+                                                               //for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
 
-                                                               for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                                               User user = dataSnapshot.getValue(User.class);
 
-                                                                   User user = snapshot.getValue(User.class);
-
-                                                                   if (user.getUnivno().matches(univno)) {
-                                                                       loginFlag = 1;
-                                                                       if (user.getPassword().matches(password)) {
-                                                                           loginFlag = 2;
-                                                                           tempUser = user;
-                                                                       }
-                                                                       break;
-                                                                   }
-
+                                                               if (user == null) {
+                                                                   hideProgress();
+                                                                   Snackbar.make(container, "You are not yet registered!", Snackbar.LENGTH_SHORT).show();
+                                                                   return;
                                                                }
+
+                                                               if (user.getUnivno() != null && user.getUnivno().contentEquals(univno)) {
+                                                                   loginFlag = 1;
+                                                                   if (user.getPassword().contentEquals(password)) {
+                                                                       loginFlag = 2;
+                                                                       tempUser = user;
+                                                                   }
+                                                                   //break;
+                                                               } else {
+                                                                   hideProgress();
+                                                                   Toast.makeText(LoginActivity.this, "Something is wrong!", Toast.LENGTH_SHORT).show();
+                                                                   loginFlag = 0;
+                                                                   //break;
+                                                               }
+
+                                                               //}
 
                                                                if (loginFlag == 2) {
 
-                                                                   prefs.edit().putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, true).commit();
+                                                                   prefs.edit().putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, true).apply();
 
                                                                    DatabaseReference resultReference = database.getReference();
 
@@ -516,9 +528,9 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                                                                                if (snapshot.getKey().equals(tempUser.getUnivno())) {
                                                                                    Result result = snapshot.getValue(Result.class);
                                                                                    if (result != null)
-                                                                                       prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, new Gson().toJson(result)).commit();
+                                                                                       prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, new Gson().toJson(result)).apply();
                                                                                    else
-                                                                                       prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").commit();
+                                                                                       prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").apply();
                                                                                    break;
                                                                                }
 
@@ -535,9 +547,7 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                                                                    Gson gson = new Gson();
                                                                    String userJson = gson.toJson(tempUser);
 
-                                                                   prefs.edit().putString(PreferenceIds.USER_JSON_KEY, userJson).commit();
-
-                                                                   hideProgress();
+                                                                   prefs.edit().putString(PreferenceIds.USER_JSON_KEY, userJson).apply();
 
                                                                    Toast.makeText(LoginActivity.this, "Hi, " + tempUser.getName(), Toast.LENGTH_SHORT).show();
 
@@ -552,12 +562,10 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                                                                    firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, loginBundle);
 
                                                                } else if (loginFlag == 1) {
-                                                                   hideProgress();
                                                                    Snackbar.make(container, "Incorrect password!", Snackbar.LENGTH_SHORT).show();
-                                                               } else {
-                                                                   hideProgress();
-                                                                   Snackbar.make(container, "You are not yet registered!", Snackbar.LENGTH_SHORT).show();
                                                                }
+
+                                                               hideProgress();
 
                                                                //Log.d(Utils.TAG, "Found " + users.size() + " users registered");
 
@@ -566,6 +574,7 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                                                            @Override
                                                            public void onCancelled(DatabaseError databaseError) {
                                                                Log.e(Utils.TAG, "Firebase Error : " + databaseError.getMessage());
+                                                               hideProgress();
                                                            }
                                                        });
 

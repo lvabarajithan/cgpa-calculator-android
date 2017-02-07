@@ -20,7 +20,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout_txt">Logout</string>
     <string name="app_name_display">CGPA Calculator</string>
-    <string name="app_version">Version: 2.0.5\nBubbleGum</string>
+    <string name="app_version">Version: 2.1.0</string>
     <string name="feedback_text">Give your feedback!</string>
     <string name="feed_desc_msg">Glad you are here. You can send feedback or share any bug if you come across, to the developer. Share and support the app. Thanks!</string>
     <string name="btn_login">LOGIN</string>

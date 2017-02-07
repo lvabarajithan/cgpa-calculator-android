@@ -46,7 +46,7 @@ import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 
 /**
  * Created by abara on 8/30/2015.
- *
+ * <p>
  * Activity to Profile settings.
  */
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     * */
     private void deleteAccount() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_Dialog);
         builder.setTitle("Delete?")
                 .setMessage("Account will be removed permanently.")
                 .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
@@ -172,9 +172,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                     ImageUtils.deleteImageFromLocal();
                                     ImageUtils.initMediaScanner(ProfileActivity.this);
 
-                                    prefs.edit().putString(PreferenceIds.USER_JSON_KEY, "{}").clear();
-                                    prefs.edit().putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").clear();
-                                    prefs.edit().putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, false).commit();
+                                    prefs.edit().putString(PreferenceIds.USER_JSON_KEY, "{}").clear()
+                                            .putString(PreferenceIds.USER_RESULTS_JSON_KEY, "{}").clear()
+                                            .putBoolean(PreferenceIds.USER_LOGGED_IN_KEY, false).apply();
 
                                     Bundle bundle = new Bundle();
                                     bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Account Deleted");
@@ -212,7 +212,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     * */
     private void resetAccount() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_Dialog);
         builder.setTitle("Reset?")
                 .setMessage("This action cannot be reversed.")
                 .setPositiveButton("Reset", new DialogInterface.OnClickListener() {

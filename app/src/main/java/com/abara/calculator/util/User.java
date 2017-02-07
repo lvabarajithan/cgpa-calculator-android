@@ -73,6 +73,14 @@ public class User implements Parcelable {
         this.avatar = avatar;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getUnivno() {
         return univno;
     }
@@ -163,10 +171,6 @@ public class User implements Parcelable {
 
     public void setRegulation(String regulation) {
         this.regulation = regulation;
-    }
-
-    public String status() {
-        return status;
     }
 
     public void setOnline(String online) {
