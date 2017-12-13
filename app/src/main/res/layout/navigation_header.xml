@@ -13,6 +13,7 @@
         android:id="@+id/header_user_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_avatar"
         app:civ_fill_color="@color/white" />
 

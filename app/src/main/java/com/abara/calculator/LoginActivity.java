@@ -234,10 +234,11 @@ public class LoginActivity extends AppCompatActivity implements Animation.Animat
                 }
 
                 if (forgetFlag) {
-                    String URL = "http://cgpacalc.xyz/app/forget_pass.php?univno=" + tempUser.getUnivno()
-                            + "&email=" + tempUser.getEmail() + "&pass=" + tempUser.getPassword();
+                    String URL = "https://fcm.googleapis.com/fcm/send";
+                    /*String URL = "http://cgpacalc.xyz/app/forget_pass.php?univno=" + tempUser.getUnivno()
+                            + "&email=" + tempUser.getEmail() + "&pass=" + tempUser.getPassword();*/
 
-                    JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, (String) null, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
 

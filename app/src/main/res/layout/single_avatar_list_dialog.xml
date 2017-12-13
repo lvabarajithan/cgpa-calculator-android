@@ -10,6 +10,7 @@
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true" />
+        android:clickable="true"
+        android:scaleType="fitCenter" />
 
 </LinearLayout>

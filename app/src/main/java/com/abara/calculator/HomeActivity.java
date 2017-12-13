@@ -208,7 +208,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onAvatarClick(int position) {
 
                 int avatar = Utils.avatars[position];
-                Glide.with(HomeActivity.this).load(avatar).fitCenter().into(headerImage);
+                Glide.with(HomeActivity.this).load(avatar).into(headerImage);
                 Toast.makeText(HomeActivity.this, "Avatar updated!", Toast.LENGTH_SHORT).show();
                 currUser.setAvatar(position);
 
@@ -346,10 +346,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             int avatarId = currUser.getAvatar();
             if (avatarId != -1) {
                 //headerImage.setImageDrawable(new BitmapDrawable(getResources(), img));
-                Glide.with(this).load(Utils.avatars[avatarId]).fitCenter().into(headerImage);
+                Glide.with(this).load(Utils.avatars[avatarId]).into(headerImage);
             } else {
                 //headerImage.setImageResource(R.drawable.ic_avatar);
-                Glide.with(this).load(R.drawable.ic_avatar).fitCenter().into(headerImage);
+                Glide.with(this).load(R.drawable.ic_avatar).into(headerImage);
             }
 
             headerUserText.setText(name);

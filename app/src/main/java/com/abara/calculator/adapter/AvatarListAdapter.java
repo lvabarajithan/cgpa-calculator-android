@@ -31,9 +31,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by abara on 7/11/15.
- *
+ * <p>
  * Adapter to populate the avatar list
- *
  */
 public class AvatarListAdapter extends RecyclerView.Adapter<AvatarHolder> {
 
@@ -55,7 +54,7 @@ public class AvatarListAdapter extends RecyclerView.Adapter<AvatarHolder> {
     @Override
     public void onBindViewHolder(final AvatarHolder holder, int position) {
 
-        Glide.with(context).load(avatars[position]).fitCenter().into(holder.imageView);
+        Glide.with(context).load(avatars[position]).into(holder.imageView);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

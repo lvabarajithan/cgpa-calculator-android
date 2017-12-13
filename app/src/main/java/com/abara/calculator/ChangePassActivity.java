@@ -173,7 +173,7 @@ public class ChangePassActivity extends AppCompatActivity {
 
         String URL = "http://cgpacalc.xyz/app/change_pass.php?univno=" + univno + "&pass=" + pass;
 
-        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, (String) null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
 

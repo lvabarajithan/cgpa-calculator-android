@@ -20,13 +20,11 @@ import com.google.firebase.messaging.RemoteMessage;
 
 /**
  * Created by abara on 06/06/16.
- *
+ * <p>
  * Service to recieve notification from FCM.
  * TODO: Display a popup of the received message only when the user is using the app.
  */
 public class NotificationService extends FirebaseMessagingService {
-
-    private static final String TAG = NotificationService.class.getName();
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
