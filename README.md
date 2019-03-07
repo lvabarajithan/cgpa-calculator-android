@@ -1,6 +1,10 @@
-#CGPA Calculator AU - Android Application
+# CGPA Calculator AU - Android Application
 
 This is the source code of CGPA Calculator Android version.
+
+**Note:**
+This project is no longer in development. 
+You are welcome to fork and continue your own version of this CGPA Calculator.
 
 ### Setting up
 
